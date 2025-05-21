@@ -300,7 +300,11 @@ button {
   font-size: 14px;
   color: #555;
   margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 .dashboard-card-dot {
   width: 10px;
