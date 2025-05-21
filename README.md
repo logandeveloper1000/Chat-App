@@ -1,6 +1,6 @@
-# Logan Chat App
+# Chat App
 
-Logan Chat App is a real-time messaging application built with React and Firebase. It supports authenticated one-on-one chat sessions and real-time message delivery using Firestore.
+Chat App is a real-time messaging application built with React and Firebase. It supports authenticated one-on-one chat sessions and real-time message delivery using Firestore.
 
 View the live project here:  
 https://logan-chat-app.netlify.app/
