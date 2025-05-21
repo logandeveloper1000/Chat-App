@@ -19,9 +19,13 @@ export default function ChatPage() {
   const bottomRef = useRef();
 
   const otherUser = chat?.participants?.find(email => email !== currentUser.email);
-  const otherUserId = chat?.userIds?.find(id => id !== currentUser.uid); // Optional, if user IDs are stored
 
-  // Mark user as present in chat
+  // Fallback way to get other user's ID from presence map
+  const otherUserId = chat?.presence
+    ? Object.keys(chat.presence).find((uid) => uid !== currentUser.uid)
+    : null;
+
+  // Track presence when entering/leaving the chat
   useEffect(() => {
     const chatRef = doc(db, "chats", chatId);
     updateDoc(chatRef, { [`presence.${currentUser.uid}`]: true });
@@ -31,7 +35,7 @@ export default function ChatPage() {
     };
   }, [chatId, currentUser.uid]);
 
-  // Load chat metadata
+  // Fetch chat and ensure read receipt
   useEffect(() => {
     const fetchChat = async () => {
       const chatDoc = doc(db, "chats", chatId);
@@ -50,7 +54,7 @@ export default function ChatPage() {
     fetchChat();
   }, [chatId, currentUser.uid]);
 
-  // Listen to messages
+  // Listen to messages in real-time
   useEffect(() => {
     const messagesRef = collection(db, "chats", chatId, "messages");
     const q = query(messagesRef, orderBy("createdAt"));
@@ -62,7 +66,7 @@ export default function ChatPage() {
     return unsub;
   }, [chatId]);
 
-  // Listen to presence/typing status
+  // Listen to chat document changes (typing + presence)
   useEffect(() => {
     const chatDoc = doc(db, "chats", chatId);
     const unsub = onSnapshot(chatDoc, (snapshot) => {
