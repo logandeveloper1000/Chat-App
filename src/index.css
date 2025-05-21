@@ -154,13 +154,14 @@ button {
 
 /* === Chat Page === */
 .chat-container {
-  min-height: calc(100vh - 60px);
-  max-width: 800px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 60px); /* Adjust if navbar height differs */
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
 }
+
 
 .chat-header {
   border-bottom: 2px solid #fbc02d;
@@ -170,6 +171,7 @@ button {
 
 .chat-messages {
   flex: 1;
+  max-height: 60vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -180,12 +182,20 @@ button {
   background: #fff;
 }
 
+
 .chat-bubble {
-  padding: 10px 14px;
+  background-color: #fff9c4;
+  padding: 10px 14px; /* ← padding added here */
   border-radius: 18px;
   max-width: 75%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .chat-bubble.self {
   background-color: #fff9c4;
@@ -449,4 +459,25 @@ button {
   to {
     transform: rotate(360deg);
   }
+}
+.status {
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+.status.online {
+  color: green;
+}
+
+.status.offline {
+  color: grey;
+}
+
+.typing-indicator {
+  font-size: 13px;
+  color: #555;
+  padding: 5px 10px;
+  margin-top: 5px;
+  font-style: italic;
 }
