@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD54kGOh-xLMeAh_RX5bu8TRMZliNhOB4A",
-  authDomain: "portfolio-logandeveloper.firebaseapp.com",
-  projectId: "portfolio-logandeveloper",
-  storageBucket: "portfolio-logandeveloper.firebasestorage.app",
-  messagingSenderId: "546326089695",
-  appId: "1:546326089695:web:e11ad10c6ebbf7aa96fe6a",
-  measurementId: "G-1P9YP1YXCE"
+  apiKey: "AIzaSyB1TWj5WC5yEWYmQCkc8pqx5xvrkhEbN3A",
+  authDomain: "logan-portolio.firebaseapp.com",
+  projectId: "logan-portolio",
+  storageBucket: "logan-portolio.firebasestorage.app",
+  messagingSenderId: "254880871321",
+  appId: "1:254880871321:web:e0934219a72bc21e4b5908",
+  measurementId: "G-PN9S1WN69N"
 };
 
 // Initialize Firebase
