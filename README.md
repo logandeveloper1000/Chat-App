@@ -3,7 +3,7 @@
 Chat App is a real-time messaging application built with React and Firebase. It supports authenticated one-on-one chat sessions and real-time message delivery using Firestore.
 
 View the live project here:  
-https://user-chat-app.netlify.app/
+https://userchat-app.netlify.app/
 
 ## Features
 
